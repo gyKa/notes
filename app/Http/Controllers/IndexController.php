@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+class IndexController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function index()
     {
-        //
-    }
+        $notes = app('db')->select("SELECT name, text FROM notes");
 
-    //
+        return view('index', ['notes' => $notes]);
+    }
 }
