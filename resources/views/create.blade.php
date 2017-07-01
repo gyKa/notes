@@ -9,7 +9,7 @@
             </div>
             <div class="input-group vertical">
                 <label for="text">Text</label>
-                <input type="text" value="" id="text" name="text">
+                <textarea rows="4" cols="50" id="text" name="text"></textarea>
             </div>
             <div class="input-group vertical">
                 <input type="submit" class="tertiary" value="Create">
