@@ -7,7 +7,7 @@ install:
 
 update:
 	git pull
-	composer uddate
+	composer update
 	php artisan migrate
 
 server:
