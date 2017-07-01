@@ -3,15 +3,18 @@
 @section("content")
     <div class="columns">
         <div class="column">
-	    <form action="/create" method="post">
+	    <form action="/{{ isset($note) ? 'edit' : 'create' }}" method="post">
+                @if (isset($note))
+                    <input type="hidden" name="id" value="{{ $note->id }}">
+		@endif
 	        <div class="field">
                     <p class="control">
-                        <input class="input" type="text" value="" name="name" placeholder="Name">
+                        <input class="input" type="text" value="{{ $note->name or '' }}" name="name" placeholder="Name">
                     </p>
                 </div>
                 <div class="field">
                     <p class="control">
-                        <textarea class="textarea" placeholder="Text" rows="4" cols="50" name="text"></textarea>
+                        <textarea class="textarea" placeholder="Text" rows="4" cols="50" name="text">{{ $note->text or '' }}</textarea>
                 </div>
                 <div class="field">
                     <p class="control">

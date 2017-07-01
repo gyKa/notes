@@ -20,4 +20,26 @@ class NoteController extends Controller
 
        return redirect('/'); 
     }
+
+    public function editForm($id)
+    {
+	$notes = app('db')->select('SELECT id, name, text FROM notes WHERE id = ?', [$id]);
+
+        if (empty($notes)) {
+           abort(404);
+        }
+
+        return view('create', ['note' => $notes[0]]);
+    }
+
+    public function edit(Request $request)
+    {
+       $id = $request->input('id');
+       $name = $request->input('name');
+       $text = $request->input('text');
+
+       app('db')->update('UPDATE notes SET name = ?, text = ? WHERE id = ?', [$name, $text, $id]);
+
+       return redirect('/'); 
+    }
 }

@@ -10,11 +10,12 @@
 
     @foreach ($notes as $note)
         <div class="columns">
-            <div class="column is-one-quarter">
-	        {{ $note->name }}
+	    <div class="column is-one-quarter">
+		{{ $note->name }}
             </div>
             <div class="column">
-                <pre>{{ $note->text }}</pre>
+		<pre>{{ $note->text }}</pre>
+                <a href="/edit/{{ $note->id }}" class="button is-small">Edit</a>
             </div>
         </div>
     @endforeach

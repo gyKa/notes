@@ -13,4 +13,7 @@
 
 $app->get('/', 'IndexController@index');
 $app->get('/create', 'NoteController@createForm');
+$app->get('/edit/{id}', 'NoteController@editForm');
+
 $app->post('/create', 'NoteController@create');
+$app->post('/edit', 'NoteController@edit');
