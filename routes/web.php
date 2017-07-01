@@ -12,3 +12,5 @@
 */
 
 $app->get('/', 'IndexController@index');
+$app->get('/create', 'NoteController@createForm');
+$app->post('/create', 'NoteController@create');
